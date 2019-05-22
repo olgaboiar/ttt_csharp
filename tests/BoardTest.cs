@@ -23,8 +23,12 @@ namespace tests
         [Test]
         public void ReturnsValueOfTheSpot()
         {
-            var actual = _board.GetSpot(2);
-            Assert.AreEqual(2, actual);
+            _board.SetSpot(3, 'x');
+            _board.SetSpot(4, 'o');
+            
+            Assert.AreEqual(2,_board.GetSpot(2));
+            Assert.AreEqual('x',_board.GetSpot(3));
+            Assert.AreEqual('o',_board.GetSpot(4));
         }
 
         [Test]
@@ -38,10 +42,12 @@ namespace tests
         [Test]
         public void ReturnsListOfAvailableSpots()
         {
+            Assert.AreEqual(9, _board.GetAvailableSpots().Count);
+            
             _board.SetSpot(4, 'o');
-            var actual = _board.GetAvailableSpots();
-            Assert.AreEqual(8, actual.Count);
-            Assert.AreEqual(new List<object>() {1,2,3,5,6,7,8,9}, actual);
+            
+            Assert.AreEqual(8, _board.GetAvailableSpots().Count);
+            Assert.AreEqual(new List<object>() {1,2,3,5,6,7,8,9}, _board.GetAvailableSpots());
         }
     }
 }
