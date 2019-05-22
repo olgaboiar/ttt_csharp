@@ -49,5 +49,19 @@ namespace tests
             Assert.AreEqual(8, _board.GetAvailableSpots().Count);
             Assert.AreEqual(new List<object>() {1,2,3,5,6,7,8,9}, _board.GetAvailableSpots());
         }
+        
+        [Test]
+        public void ReturnsBoardAsStringToBePrinted()
+        {
+            var emptyBoard = _board.PrepareForPrint();
+            
+            Assert.AreEqual("\n          1 | 2 | 3\n         -----------\n          4 | 5 | 6\n         -----------\n          7 | 8 | 9\n        \n", emptyBoard);
+            
+            _board.SetSpot(3, 'x');
+            _board.SetSpot(4, 'o');
+            var notEmptyBoard = _board.PrepareForPrint();
+            
+            Assert.AreEqual("\n          1 | 2 | x\n         -----------\n          o | 5 | 6\n         -----------\n          7 | 8 | 9\n        \n", notEmptyBoard);
+        }
     }
 }

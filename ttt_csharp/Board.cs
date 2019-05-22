@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ttt_csharp
 {
@@ -31,6 +33,13 @@ namespace ttt_csharp
                 }
             }
             return availableSpots;
+        }
+
+        public string PrepareForPrint()
+        {
+            return String.Format("\n          {0} | {1} | {2}\n         -----------\n" +
+                                 "          {3} | {4} | {5}\n         -----------\n" +
+                                 "          {6} | {7} | {8}\n        \n", Spots.Select(x=>x.ToString()).ToArray());
         }
     }
 }
