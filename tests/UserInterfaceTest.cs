@@ -46,22 +46,5 @@ namespace tests
             var actual = _ui.ReadInput();
             Assert.IsInstanceOf(typeof(int), actual);
         }
-        
-        private class ConsoleMock : IUserInterface 
-        {
-            public int numTimesOutputCalled = 0;
-            public int numTimesReadInputCalled = 0;
-
-            public void Output(string message)
-            {
-                numTimesOutputCalled++;
-            }
-
-            public String ReadInput()
-            {
-                numTimesReadInputCalled++;
-                return "0";
-            }
-        }
     }
 }
