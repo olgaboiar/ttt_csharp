@@ -18,13 +18,24 @@ namespace tests
         [Test]
         public void OutputsMessageToConsole()
         {
-            var sw = new StringWriter();
-            Console.SetOut(sw);
+            var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
             var message = "test";
             _userInterface.Output(message);
-            var actual = sw.ToString().Replace(Environment.NewLine, "");
+            var actual = stringWriter.ToString().Replace(Environment.NewLine, "");
             
             Assert.AreEqual(message, actual);
+        }
+        
+        [Test]
+        public void ReadsUserInput()
+        {
+            var inputString = "1";
+            var stringReader = new StringReader(inputString);
+            Console.SetIn(stringReader);
+            var actual = _userInterface.ReadInput();
+
+            Assert.AreEqual(inputString, actual);
         } 
     }
 }

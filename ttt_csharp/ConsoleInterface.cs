@@ -8,5 +8,10 @@ namespace ttt_csharp
         {
             Console.WriteLine(message);
         }
+
+        public string ReadInput()
+        {
+            return Console.ReadLine();
+        }
     }
 }
