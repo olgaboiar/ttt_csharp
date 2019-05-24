@@ -7,11 +7,12 @@ namespace ttt_csharp
         private UserInterface _ui;
         public Board Board;
         private HumanPlayer human;
-        private EasyComputer computer;
+        private Computer computer;
         public IPlayer CurrentPlayer;
         private GameRules gameRules;
         private char humanMarker;
         private char computerMarker;
+        private int difficultyLevel;
         
         public Game(UserInterface ui, Board board)
         {
@@ -25,8 +26,22 @@ namespace ttt_csharp
             humanMarker = SetHumanMarker();
             human = new HumanPlayer(_ui, humanMarker);
             computerMarker = SetComputerMarker(humanMarker);
-            computer = new EasyComputer(computerMarker);
+            difficultyLevel = SetDifficultyLevel();
+            computer = SetComputer(computerMarker, difficultyLevel);
             gameRules = new GameRules();
+        }
+
+        public Computer SetComputer(char computerMarker, int difficultyLevel)
+        {
+            if (difficultyLevel == 1)
+            {
+                return new EasyComputer(computerMarker);
+            }
+            return new MediumComputer(computerMarker);
+        }
+        public int SetDifficultyLevel()
+        {
+            return _ui.GetDifficultyLevel();
         }
 
         public char SetHumanMarker()

@@ -57,6 +57,13 @@ namespace ttt_csharp
             String winnerMessage = "Game Over! The winner is " + winner;
             _ui.Output(winnerMessage);
         }
+
+        public int GetDifficultyLevel()
+        {
+            _ui.Output("Choose 1 or 2 for difficulty level ");
+            var level = _ui.ReadInput();
+            return Convert.ToInt32(level);
+        }
         
     }
 }
