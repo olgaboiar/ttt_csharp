@@ -63,5 +63,13 @@ namespace tests
             
             Assert.AreEqual("\n          1 | 2 | x\n         -----------\n          o | 5 | 6\n         -----------\n          7 | 8 | 9\n        \n", notEmptyBoard);
         }
+
+        [Test]
+        public void ReturnsTrueIfSpotIsInteger()
+        {
+            Assert.True(_board.IsAvailableSpot(2));
+            Assert.False(_board.IsAvailableSpot('x'));
+            Assert.False(_board.IsAvailableSpot('4'));
+        }
     }
 }

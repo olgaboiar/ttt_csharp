@@ -182,7 +182,6 @@ namespace tests
         public void ReturnsTrueForTieWhenBoardIsTie()
         {
             Assert.True(_gameRules.Tie(_tieBoard));
-            Assert.True(_gameRules.Tie(_tieBoard));
         }
         
         [Test]
