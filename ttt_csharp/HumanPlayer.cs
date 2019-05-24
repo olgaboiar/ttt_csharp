@@ -3,12 +3,11 @@ namespace ttt_csharp
     public class HumanPlayer : IPlayer
     {
         private char _marker;
-        const char xMarker = 'x';
         private UserInterface _ui;
             
-        public HumanPlayer(UserInterface ui)
+        public HumanPlayer(UserInterface ui, char humanMarker)
         {
-            _marker = xMarker;
+            _marker = humanMarker;
             _ui = ui;
         }
         
@@ -17,6 +16,11 @@ namespace ttt_csharp
             _ui.AskToMove();
             var move = _ui.ReadInput();
             board.SetSpot(move, _marker);
+        }
+        
+        public char GetMarker()
+        {
+            return _marker;
         }
     }
 }

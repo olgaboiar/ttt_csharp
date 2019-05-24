@@ -6,7 +6,8 @@ namespace ttt_csharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TicTacToe ticTacToe = new TicTacToe();
+            ticTacToe.Run();
         }
     }
 }

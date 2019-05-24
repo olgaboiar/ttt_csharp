@@ -46,5 +46,14 @@ namespace tests
             var actual = _ui.ReadInput();
             Assert.IsInstanceOf(typeof(int), actual);
         }
+
+        [Test]
+        public void GetDifficultyLevelCallsReadInput()
+        {
+            var actual = _ui.GetDifficultyLevel();
+            Assert.AreEqual(1, _consoleMock.numTimesReadInputCalled);
+            Assert.AreEqual(1, _consoleMock.numTimesOutputCalled);
+            Assert.AreEqual(5, actual);
+        }
     }
 }

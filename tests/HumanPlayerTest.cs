@@ -16,7 +16,7 @@ namespace tests
         {
             _consoleMock = new ConsoleMock();
             _ui = new UserInterface(_consoleMock);
-            _testHuman = new HumanPlayer(_ui);
+            _testHuman = new HumanPlayer(_ui, 'x');
             _board = new Board();
         }
         
@@ -33,6 +33,13 @@ namespace tests
             _testHuman.Move(_board);
             Assert.AreEqual(1, _consoleMock.numTimesOutputCalled);
             Assert.AreEqual(1, _consoleMock.numTimesReadInputCalled);
+        }
+        
+        [Test]
+        public void GetMarkerReturnsCompMarker()
+        {
+            var actual = _testHuman.GetMarker();
+            Assert.AreEqual('x', actual);
         }
     }
 }
