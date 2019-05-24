@@ -73,12 +73,22 @@ namespace ttt_csharp
         {
             if (CurrentPlayer == null)
             {
-                CurrentPlayer = human;
+                CurrentPlayer = SetFirstPlayer();
             }
             else
             {
                 CurrentPlayer = ChangePlayers(CurrentPlayer);
             }
+        }
+
+        public IPlayer SetFirstPlayer()
+        {
+            if (human.GetMarker() == 'x')
+            {
+                return human;
+            }
+
+            return computer;
         }
 
         public IPlayer ChangePlayers(IPlayer currentPlayer)
