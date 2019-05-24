@@ -18,5 +18,10 @@ namespace ttt_csharp
             var move = _ui.ReadInput();
             board.SetSpot(move, _marker);
         }
+        
+        public char GetMarker()
+        {
+            return _marker;
+        }
     }
 }

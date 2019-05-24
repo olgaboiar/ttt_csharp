@@ -25,5 +25,10 @@ namespace ttt_csharp
             int index = rand.Next(possibleMoves.Count);
             return Convert.ToInt32(possibleMoves[index]);
         }
+
+        public char GetMarker()
+        {
+            return _marker;
+        }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace ttt_csharp
 {
     public class Game
@@ -54,6 +56,20 @@ namespace ttt_csharp
             }
 
             return human;
+        }
+
+        public void DeclareWinner()
+        {
+            if (!gameRules.Tie(Board))
+            {
+                var winner = CurrentPlayer.GetMarker();
+                _ui.DeclareWinner(winner);
+            }
+            else
+            {
+                _ui.DeclareTie();
+            }
+            
         }
     }
 }

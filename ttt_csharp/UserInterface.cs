@@ -32,6 +32,18 @@ namespace ttt_csharp
             string input = _ui.ReadInput();
             return Convert.ToInt32(input);
         }
+
+        public void DeclareTie()
+        {
+            String tieMessage = "Game Over! It's a tie!";
+            _ui.Output(tieMessage);
+        }
+
+        public void DeclareWinner(char winner)
+        {
+            String winnerMessage = "Game Over! The winner is " + winner;
+            _ui.Output(winnerMessage);
+        }
         
     }
 }

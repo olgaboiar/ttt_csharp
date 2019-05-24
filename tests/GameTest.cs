@@ -19,18 +19,24 @@ namespace tests
             _ui = new UserInterface(_consoleMock);
             _testBoard = new Board();
             _testGame = new Game(_ui, _testBoard);
+            _testGameRules = new GameRules();
         }
 
         [Test]
         public void BoardIsInGameOverStateAfterPlayRuns()
         {
+            Assert.False(_testGameRules.GameOver(_testGame.Board));
+            
+            _testGame.Initialize();
             _testGame.Play();
+            
             Assert.True(_testGameRules.GameOver(_testGame.Board));
         }
         
         [Test]
         public void PlayCallsPrintsOutputAtLeastNineTimes()
         {
+            _testGame.Initialize();
             _testGame.Play();
             Assert.GreaterOrEqual(_consoleMock.numTimesOutputCalled, 9);
         }
@@ -38,6 +44,7 @@ namespace tests
         [Test]
         public void PlayCallsReadInputAtLeastThreeTimes()
         {
+            _testGame.Initialize();
             _testGame.Play();
             Assert.GreaterOrEqual(_consoleMock.numTimesReadInputCalled, 3);
         }
