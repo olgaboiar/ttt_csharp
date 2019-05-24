@@ -5,7 +5,7 @@ namespace ttt_csharp
         private int _move;
         public MediumComputer(char marker) : base(marker)
         {
-//            _marker = oMarker;
+//            _marker = marker;
         }
 
         public void Move(Board board)
@@ -19,7 +19,7 @@ namespace ttt_csharp
                 _move = RandomMove(board);   
             }
             
-//            board.SetSpot(_move, _marker);
+            board.SetSpot(_move, _marker);
         }
     }
 }

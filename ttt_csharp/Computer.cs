@@ -5,7 +5,7 @@ namespace ttt_csharp
 {
     public class Computer : IPlayer
     {
-        private char _marker;
+        protected char _marker;
 //        const char oMarker = 'o';
 
         public Computer(char marker)
