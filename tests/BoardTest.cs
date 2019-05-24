@@ -21,7 +21,7 @@ namespace tests
         }
 
         [Test]
-        public void ReturnsValueOfTheSpot()
+        public void GetSpotReturnsValueOfTheSpot()
         {
             _board.SetSpot(3, 'x');
             _board.SetSpot(4, 'o');
@@ -32,7 +32,7 @@ namespace tests
         }
 
         [Test]
-        public void AssignsSpotValue()
+        public void SetSpotAssignsSpotValue()
         {
             _board.SetSpot(2, 'x');
             var actual = _board.Spots[1];

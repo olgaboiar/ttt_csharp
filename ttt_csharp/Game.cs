@@ -10,6 +10,8 @@ namespace ttt_csharp
         private EasyComputer computer;
         public IPlayer CurrentPlayer;
         private GameRules gameRules;
+        private char humanMarker;
+        private char computerMarker;
         
         public Game(UserInterface ui, Board board)
         {
@@ -20,11 +22,27 @@ namespace ttt_csharp
 
         public void Initialize()
         {
-            human = new HumanPlayer(_ui);
-            computer = new EasyComputer();
+            humanMarker = SetHumanMarker();
+            human = new HumanPlayer(_ui, humanMarker);
+            computerMarker = SetComputerMarker(humanMarker);
+            computer = new EasyComputer(computerMarker);
             gameRules = new GameRules();
         }
 
+        public char SetHumanMarker()
+        {
+            return _ui.SetHumanMarker();
+        }
+
+        public char SetComputerMarker(char humanMarker)
+        {
+            if (humanMarker == 'x')
+            {
+                return 'o';
+            }
+
+            return 'x';
+        }
         public void Play()
         {
             _ui.PrintBoard(Board);

@@ -15,6 +15,19 @@ namespace ttt_csharp
             var greeting = "Hello! Lets play TicTacToe";
             _ui.Output(greeting);
         }
+
+        public char SetHumanMarker()
+        {
+            _ui.Output("Choose x or o ");
+            return GetMarker();
+        }
+
+        public char GetMarker()
+        {
+            var marker = _ui.ReadInput().ToCharArray();
+//            validate input
+            return marker[0];
+        }
         
         public void AskToMove()
         {
