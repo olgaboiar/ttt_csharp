@@ -37,6 +37,7 @@ namespace ttt_csharp
             {
                 return new EasyComputer(computerMarker);
             }
+            System.Console.WriteLine("should be medium");
             return new MediumComputer(computerMarker);
         }
         public int SetDifficultyLevel()

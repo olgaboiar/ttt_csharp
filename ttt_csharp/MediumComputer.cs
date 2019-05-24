@@ -8,7 +8,7 @@ namespace ttt_csharp
 //            _marker = marker;
         }
 
-        public void Move(Board board)
+        public override void Move(Board board)
         {
             if (board.Spots[4].Equals(5))
             {
@@ -18,7 +18,6 @@ namespace ttt_csharp
             {
                 _move = RandomMove(board);   
             }
-            
             board.SetSpot(_move, _marker);
         }
     }

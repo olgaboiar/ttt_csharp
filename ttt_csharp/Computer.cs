@@ -13,7 +13,7 @@ namespace ttt_csharp
             _marker = marker;
         }
 
-        public void Move(Board board)
+        public virtual void Move(Board board)
         {
             var move = RandomMove(board);
             board.SetSpot(move, _marker);
